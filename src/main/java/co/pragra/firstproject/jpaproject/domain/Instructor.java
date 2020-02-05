@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@Table(name = "table_instructor")
 @Entity
+@Table(name = "'table_instructor'")
 @NoArgsConstructor
 public class Instructor extends BaseEntity{
     @Id

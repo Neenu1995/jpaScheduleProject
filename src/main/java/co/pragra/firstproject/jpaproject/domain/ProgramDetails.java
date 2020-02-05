@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table
+@Table(name = "'table_programs'")
 @NoArgsConstructor
 public class ProgramDetails extends BaseEntity{
     @Id
@@ -19,7 +19,7 @@ public class ProgramDetails extends BaseEntity{
     private  Double fee;
     private  int spots;
     private  int availableSpots;
-    @OneToOne(targetEntity = Instructor.class,fetch = FetchType.LAZY)
+    @OneToOne(targetEntity = Instructor.class, cascade = CascadeType.REMOVE,fetch = FetchType.LAZY)
     private Instructor intructor;
     private  String picURL;
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class JpaprojectApplication {
@@ -21,13 +22,14 @@ public class JpaprojectApplication {
         SpringApplication.run(JpaprojectApplication.class, args);
     }
 
+    @Bean
     CommandLineRunner runner(){
         return args->{
             Instructor instructor = new Instructor();
             instructor.setName("Neenu");
             instructor.setDesc("Java Full Stack Developer");
             instructor = instructorRepo.save(instructor);
-            //instructorRepo.save(instructor);
+            instructorRepo.save(instructor);
 
             ProgramDetails programDetails = new ProgramDetails();
             programDetails.setName("Java");

@@ -13,8 +13,8 @@ public class ProgramDetails extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
-    private String desc;
+    private String _name;
+    private String _description;
     private String duration;
     private  Double fee;
     private  int spots;

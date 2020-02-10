@@ -9,10 +9,10 @@ import javax.persistence.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
+
 @Data
 @Entity
-@Table(name = "'table_schedule'")
+@Table(name = "table_schedule")
 @NoArgsConstructor
 public class ClassSchedule extends  BaseEntity {
     @Id

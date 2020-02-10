@@ -14,6 +14,6 @@ public class Instructor extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    private String desc;
+    private String description;
     private String avatarURL;
 }

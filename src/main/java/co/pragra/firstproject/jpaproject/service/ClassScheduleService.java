@@ -3,6 +3,7 @@ package co.pragra.firstproject.jpaproject.service;
 import co.pragra.firstproject.jpaproject.domain.ClassSchedule;
 import co.pragra.firstproject.jpaproject.exception.ScheduleNotFoundException;
 
+import co.pragra.firstproject.jpaproject.repository.ScheduleRepo;
 import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,11 +15,14 @@ import java.util.Optional;
 
 @Service
 public class ClassScheduleService {
-    @Autowired
+
     private List<ClassSchedule> scheduleList = new ArrayList<>();
+    @Autowired
+    private ScheduleRepo scheduleRepo;
+
 
     public ClassSchedule getScheduleByWeek(int weekOfYear){
-        Optional<ClassSchedule> schedule = scheduleList.stream().filter(s-> s.getWeekOfYear() == weekOfYear ).limit(1).findFirst();
+       /* Optional<ClassSchedule> schedule = scheduleList.stream().filter(s-> s.getWeekOfYear() == weekOfYear ).limit(1).findFirst();
         try {
             if(schedule.get()== null){
                 throw new ScheduleNotFoundException();
@@ -27,6 +31,8 @@ public class ClassScheduleService {
             throw  new ScheduleNotFoundException();
 
         }
-        return  schedule.get();
+        return  schedule.get();*/
+
+       return  this.scheduleRepo.getByWeekOfYear(weekOfYear);
     }
 }

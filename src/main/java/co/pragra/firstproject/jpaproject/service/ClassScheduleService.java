@@ -1,27 +1,23 @@
 package co.pragra.firstproject.jpaproject.service;
 
-import co.pragra.firstproject.jpaproject.domain.ClassSchedule;
-import co.pragra.firstproject.jpaproject.exception.ScheduleNotFoundException;
+import co.pragra.firstproject.jpaproject.domain.YearlySchedule;
 
-import co.pragra.firstproject.jpaproject.repository.ScheduleRepo;
-import net.bytebuddy.implementation.bytecode.Throw;
+import co.pragra.firstproject.jpaproject.repository.YearlyScheduleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class ClassScheduleService {
 
-    private List<ClassSchedule> scheduleList = new ArrayList<>();
+    private List<YearlySchedule> scheduleList = new ArrayList<>();
     @Autowired
-    private ScheduleRepo scheduleRepo;
+    private YearlyScheduleRepo scheduleRepo;
 
 
-    public ClassSchedule getScheduleByWeek(int weekOfYear){
+    public YearlySchedule getScheduleByWeek(int weekOfYear){
        /* Optional<ClassSchedule> schedule = scheduleList.stream().filter(s-> s.getWeekOfYear() == weekOfYear ).limit(1).findFirst();
         try {
             if(schedule.get()== null){
@@ -33,6 +29,6 @@ public class ClassScheduleService {
         }
         return  schedule.get();*/
 
-       return  this.scheduleRepo.getByWeekOfYear(weekOfYear);
+       return  this.scheduleRepo.getBy_weekOfYear(weekOfYear);
     }
 }

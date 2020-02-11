@@ -7,13 +7,15 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "'table_instructor'")
+@Table(name = "table_instructor")
 @NoArgsConstructor
 public class Instructor extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String name;
-    private String description;
-    private String avatarURL;
+    private long _id;
+    private String _name;
+    private String _description;
+    private String _avatarURL;
+    @OneToOne(mappedBy = "_intructor")
+    private ProgramDetails _programDetails;
 }

@@ -7,19 +7,20 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "'table_programs'")
+@Table(name = "table_programs")
 @NoArgsConstructor
 public class ProgramDetails extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long _id;
     private String _name;
     private String _description;
-    private String duration;
-    private  Double fee;
-    private  int spots;
-    private  int availableSpots;
-    @OneToOne(targetEntity = Instructor.class, cascade = CascadeType.REMOVE,fetch = FetchType.LAZY)
-    private Instructor intructor;
-    private  String picURL;
+    private String _duration;
+    private  Double _fee;
+    private  int _spots;
+    private  int _availableSpots;
+    @OneToOne(targetEntity = Instructor.class, cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(updatable = true)
+    private Instructor _intructor;
+    private  String _picURL;
 }

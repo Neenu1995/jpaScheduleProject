@@ -7,15 +7,18 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "'table_slots'")
+@Table(name = "table_slots")
 @NoArgsConstructor
 public class TimeSlots {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private long slot1;
-    private long slot2;
-    private long slot3;
-    private long slot4;
+    private long _id;
+    private long _slot1;
+    private long _slot2;
+    private long _slot3;
+    private long _slot4;
+    @ManyToOne
+    @JoinColumn
+     private WeeklySchedule _weeklySchedule;
 
 }

@@ -25,15 +25,15 @@ public class JpaprojectApplication {
     CommandLineRunner runner(){
         return args->{
             Instructor instructor = new Instructor();
-            instructor.setName("Neenu");
-            instructor.setDescription("Java Full Stack Developer");
+            instructor.set_name("Neenu");
+            instructor.set_description("Java Full Stack Developer");
             instructor = instructorRepo.save(instructor);
             instructorRepo.save(instructor);
 
             ProgramDetails programDetails = new ProgramDetails();
             programDetails.set_name("Java");
-            programDetails.setIntructor(instructor);
-            programDetails.setFee(250.00);
+            //programDetails.set_intructor(instructor);
+            programDetails.set_fee(250.00);
             programRepo.saveAndFlush(programDetails);
         };
     }

@@ -14,11 +14,8 @@ public class WeeklySchedule extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long _id;
     private String _dayOfWeek;
-    @OneToMany(mappedBy = "_weeklySchedule",cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = TimeSlots.class)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = TimeSlots.class)
     private List<TimeSlots> _dailyScheduleList = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn
-    private YearlySchedule _yearlySchedule;
 
 }

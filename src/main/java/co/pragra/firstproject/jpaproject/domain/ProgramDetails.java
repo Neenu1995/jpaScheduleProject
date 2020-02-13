@@ -19,8 +19,13 @@ public class ProgramDetails extends BaseEntity{
     private  Double _fee;
     private  int _spots;
     private  int _availableSpots;
-    @OneToOne(targetEntity = Instructor.class, cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(updatable = true)
+    @ManyToOne(targetEntity = Instructor.class, cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Instructor _intructor;
     private  String _picURL;
+
+    public ProgramDetails(String _name, String _description, Instructor instructor) {
+        this._name = _name;
+        this._description = _description;
+        this._intructor = instructor;
+    }
 }

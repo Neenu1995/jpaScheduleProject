@@ -10,9 +10,8 @@ import java.util.List;
 
 @Repository
 public interface ProgramRepo extends JpaRepository<ProgramDetails,Long> {
-
     @Override
-            @Query(value = "SELECT * FROM table_program",nativeQuery = true)
+    @Query(value = "SELECT * FROM table_programs",nativeQuery = true)
     <S extends ProgramDetails> List<S> findAll(Example<S> example);
 
 }

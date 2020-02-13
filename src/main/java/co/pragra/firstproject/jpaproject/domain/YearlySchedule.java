@@ -21,7 +21,7 @@ public class YearlySchedule extends  BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  long _id;
     private int _weekOfYear;
-    @OneToMany(mappedBy = "_yearlySchedule",cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = WeeklySchedule.class)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = WeeklySchedule.class)
     private List<WeeklySchedule> _weeklyScheduleList = new ArrayList<>();
 
 }

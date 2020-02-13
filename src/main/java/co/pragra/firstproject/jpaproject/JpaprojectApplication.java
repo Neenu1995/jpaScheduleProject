@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class JpaprojectApplication {
+public class JpaprojectApplication  {
 
     @Autowired
     private ProgramRepo programRepo;
@@ -22,19 +22,16 @@ public class JpaprojectApplication {
         SpringApplication.run(JpaprojectApplication.class, args);
     }
 
+
+
+    @Bean
     CommandLineRunner runner(){
         return args->{
-            Instructor instructor = new Instructor();
-            instructor.set_name("Neenu");
-            instructor.set_description("Java Full Stack Developer");
-            instructor = instructorRepo.save(instructor);
-            instructorRepo.save(instructor);
 
-            ProgramDetails programDetails = new ProgramDetails();
-            programDetails.set_name("Java");
-            //programDetails.set_intructor(instructor);
-            programDetails.set_fee(250.00);
-            programRepo.saveAndFlush(programDetails);
+           instructorRepo.save(new Instructor("Neenu","Java Full Stack Developer"));
+           instructorRepo.save(new Instructor("Aghil","Electrical Engineering"));
+
+           programRepo.saveAndFlush(new ProgramDetails("Java 101","Introduction to java",new Instructor("Aghil","Electrical Engineering")));
         };
     }
 }

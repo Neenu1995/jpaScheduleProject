@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "table_slots")
 @NoArgsConstructor
-public class TimeSlots {
+public class TimeSlots extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long _id;
@@ -17,8 +17,6 @@ public class TimeSlots {
     private long _slot2;
     private long _slot3;
     private long _slot4;
-    @ManyToOne
-    @JoinColumn
-     private WeeklySchedule _weeklySchedule;
+
 
 }

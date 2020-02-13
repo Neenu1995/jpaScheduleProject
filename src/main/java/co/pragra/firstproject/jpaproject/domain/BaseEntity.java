@@ -1,11 +1,12 @@
 package co.pragra.firstproject.jpaproject.domain;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import java.util.Date;
 
+@Data
 public class BaseEntity {
-   /* private Entity create_date;
-    private Entity  update_date;*/
 
     private Date create_date;
     private Date  update_date;
